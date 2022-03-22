@@ -5,7 +5,7 @@ const fetchData = async url => {
 
 const trasportadoras = document.getElementById('transportadora');
 const modelos = document.getElementById('modeloPersiana');
-const tecido = document.getElementById('tecidoPersiana');
+const tecidos = document.getElementById('tecidoPersiana');
 
 json = fetchData('./api.json')
     .then(res => {
@@ -20,7 +20,27 @@ json = fetchData('./api.json')
                 <option value="${modelo.id}">${modelo.nome}</option>
             `;
         });
-        
+
+        modelos.addEventListener("change", ()=>{
+            let modeloAtual = modelos.options[modelos.selectedIndex].value;
+            tecidos.innerHTML = '<option selected>Escolha o tecido...</option>';
+            
+            for ( let tipo in res.tipos) {
+                console.log(tipo)
+                if (tipo == modeloAtual) {
+                    res.tipos[tipo].forEach((tipo) => {
+                        tecidos.innerHTML += `
+                            <option value="${tipo.id}">${tipo.nome}</option>
+                        `;
+                    });
+                    tecidos.disabled = false;
+                    break;
+                }
+            }
+            if (tecidos.childElementCount == 0) {
+                tecidos.disabled = true;
+            } 
+        });
     })
 
 const calculaPersiana = ( modeloPersiana, tecidoPersiana, qtde, largura, altura, frete, prazo, transp ) => {
