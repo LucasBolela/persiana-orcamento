@@ -1,0 +1,138 @@
+{
+    "modelos":[
+        {
+            "id":1,
+            "nome":"Cortina"
+        },
+        {
+            "id":2,
+            "nome":"Double Vision"
+        },
+        {
+            "id":3,
+            "nome":"Horizontal"
+        },
+        {
+            "id":4,
+            "nome":"Rolô"
+        },
+        {
+            "id":5,
+            "nome":"Romana"
+        },
+        {
+            "id":6,
+            "nome":"Vertical"
+        }
+    ],
+
+    "tipos":{
+        "1":[
+            {
+                "id":1,
+                "nome": "Cortina",
+                "preco":3214
+            }
+        ],
+
+        "2":[
+            {
+                "id":1,
+                "nome":"Acessórios",
+                "preco":1234
+            },
+            {
+                "id":2,
+                "nome":"Translúcido",
+                "preco":1234
+            }
+        ],
+
+        "3":[
+            {
+                "id":1,
+                "nome":"Alumínio 25mm",
+                "preco":1234
+            },
+            {
+                "id":2,
+                "nome": "Alumínio 50mm",
+                "preco":1234
+            },
+            {
+                "id":3,
+                "nome": "Alumínio Perfurado 25mm",
+                "preco":1234
+            },
+            {
+                "id":4,
+                "nome": "Madeira 25mm",
+                "preco":1234
+            }
+        ],
+
+        "4":[
+            {
+                "id":1,
+                "nome":"Acessórios",
+                "preco":1234
+            },
+            {
+                "id":2,
+                "nome":"Blackout",
+                "preco":1234
+            },
+            {
+                "id":3,
+                "nome":"Tela Solar",
+                "preco":1234
+            },
+            {
+                "id":4,
+                "nome":"Translúcido",
+                "preco":1234
+            }
+        ],
+
+        "5":[
+            {
+                "id":1,
+                "nome":"Blackout",
+                "preco":1234
+            },
+            {
+                "id":2,
+                "nome":"Tela Solar",
+                "preco":1234
+            },
+            {
+                "id":3,
+                "nome":"Translúcido",
+                "preco":1234
+            }
+        ],
+
+        "6":[
+            {
+                "id":1,
+                "nome":"Acessorios",
+                "preco":1234
+            },
+            {
+                "id":2,
+                "nome":"Blackout",
+                "preco":1234
+            },
+            {
+                "id":3,
+                "nome":"Translúcido",
+                "preco":1234
+            }
+        ]
+    },
+
+    "transportadoras": [
+        "Jamef",
+        "Braspress"
+    ] 
+}
