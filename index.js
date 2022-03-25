@@ -1,3 +1,8 @@
+const containerCard = document.getElementById('cardContainer');
+const adicionarNovaPersianaButton = document.getElementById('adicionarNovaPersiana');
+
+let quantidadeProduto = 0;
+
 const fetchData = async url => {
     const response = await fetch(url)
     return await response.json()
@@ -12,21 +17,19 @@ fetchData('./api.json').then(res => {
     });
 })
 
-const containerCard = document.getElementById('cardContainer');
 
-let quantidadeProduto = 0;
-
-const json = fetchData('./api.json')
+const json = () => {
+    fetchData('./api.json')
     .then(res => {
         let modelos = document.getElementById('modeloPersiana'+ quantidadeProduto);
         let tecidos = document.getElementById('tecidoPersiana'+ quantidadeProduto);
-
+        
         res.modelos.forEach((modelo) => {
             modelos.innerHTML += `
-                <option value="${modelo.id}">${modelo.nome}</option>
+            <option value="${modelo.id}">${modelo.nome}</option>
             `;
         });
-
+        
         modelos.addEventListener("change", ()=>{
             let modeloAtual = modelos.options[modelos.selectedIndex].value;
             tecidos.innerHTML = '<option selected>Escolha o tecido...</option>';
@@ -35,20 +38,21 @@ const json = fetchData('./api.json')
                 if (tipo == modeloAtual) {
                     res.tipos[tipo].forEach((tipo) => {
                         tecidos.innerHTML += `
-                            <option value="${tipo.id}">${tipo.nome}</option>
+                        <option value="${tipo.id}">${tipo.nome}</option>
                         `;
                     });
                     tecidos.disabled = false;
                     break;
                 }
             }
-
+            
             if (tecidos.childElementCount == 1) {
                 tecidos.disabled = true;
             } 
         });
     })
-
+}
+    
 const calculaPersiana = ( modeloPersiana, tecidoPersiana, qtde, largura, altura, frete, prazo, transp ) => {
     let preco = valor * (altura * l)
     let valor_total = (qtde * preco) + frete 
@@ -92,8 +96,10 @@ const adicionarNovaPersiana = () => {
             </div>
         </div>
     `;
+    json();
 
-    json;
 }
 
 adicionarNovaPersiana();
+
+adicionarNovaPersianaButton.addEventListener('click', adicionarNovaPersiana)
